@@ -10,12 +10,14 @@
 <body>
     <h1 id="heading"><%=DAY%></h1>
     <div class="box">
-        <form>
         <%for(var i=0;i<items.length;i++) {%>
-            <div class="item">
-            <input type="checkbox">
-            <p><%=items[i]%></p>
-            </div>
+            <form action="/delete" method="post">
+                <div class="item">
+                    <input type="checkbox" name="delete" value="<%=items[i]%>" onChange="this.form.submit();">
+                    <p><%=items[i]%></p>
+                </div>
+            </form>
+            
         <%}%>
         </form>
         <form method="post" action="/" class="item">
